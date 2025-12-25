@@ -161,4 +161,150 @@ section.active {
   display: none;
 }
 
-/* <= to_do */
+/* typing => */
+#ty-start-page {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 2rem;
+  z-index: 10;
+  background-color: cornflowerblue;
+  display: none; /* Explanation required */
+}
+
+#ty-start-page.show,
+#ty-game.show,
+#ty-result-container.show {
+  display: flex;
+}
+
+#ty-start-page > h1 {
+  margin-bottom: 1.5rem;
+}
+
+#ty-start-page > h2 {
+  margin: 2rem;
+}
+
+#ty-start-page > p > span {
+  font-size: 1.5rem;
+  background-color: #fff;
+  color: cornflowerblue;
+  padding: 0 0.5rem;
+  margin: 0 0.2rem;
+  box-shadow: 0.3rem 0.3rem 0.2rem rgba(0, 0, 0, 0.5);
+}
+
+#ty-game {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#ty-quote-container {
+  margin: 1rem 0;
+}
+
+#ty-quote,
+#ty-textarea {
+  width: 90vw;
+  max-width: 600px;
+  min-height: 20vh;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+}
+
+#ty-quote {
+  background-color: cornflowerblue;
+  border: 1px solid #fff;
+}
+
+#ty-author {
+  padding: 0.5rem;
+  text-align: right;
+}
+
+#ty-textarea {
+  color: black;
+  font-weight: bold;
+}
+
+#ty-timer {
+  border-bottom: 3px dashed;
+  padding: 0 0.5rem;
+  font-size: 2rem;
+}
+
+#ty-result-container {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(255, 252, 255, 0.6);
+  z-index: 10;
+}
+
+#ty-result {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #333;
+  padding: 1.5rem;
+  border: solid 5px cornflowerblue;
+  margin-bottom: 1rem;
+}
+
+#ty-quote-review {
+  width: 80vw;
+  max-width: 600px;
+  min-height: 18vh;
+  background-color: #000;
+  padding: 1.5rem;
+  font-size: 1.5rem;
+}
+
+#ty-back-to-start {
+  background-color: cornflowerblue;
+  padding: 0.5rem 2rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  border: 3px solid cornflowerblue;
+  transition: 0.3s;
+}
+
+#ty-back-to-start:hover {
+  background-color: #fff;
+  color: cornflowerblue;
+}
+
+#ty-back-to-start:active {
+  transform: scale(0.98);
+}
+
+#ty-LPM {
+  background-color: #111;
+  padding: 0 1rem;
+  margin: 1rem;
+}
+
+#ty-quote > span.correct {
+  color: lightgreen;
+}
+
+#ty-quote > span.wrong {
+  color: rgb(255, 0, 0);
+}
+
+#ty-quote > span.bar {
+  border-bottom: 3px solid red;
+}
+/* <= typing */

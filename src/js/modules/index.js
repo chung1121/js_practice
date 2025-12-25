@@ -1,5 +1,6 @@
 import * as Todo from './todo.js';
-console.log('a');
+import * as Typing from './typing.js';
+
 const nav = document.querySelector('#nav');
 const cover = document.querySelector('#cover');
 const appNames = ['todo', 'typing', 'slide-puzzle', 'memory-card', 'life'];
@@ -8,7 +9,7 @@ appNames.forEach((appName) => {
   const menu = document.createElement('a');
   menu.classList.add('nav-menu');
   menu.textContent = appName.toUpperCase();
-  menu.addEventListener('click', () => {
+  menu.addEventListener('click', (e) => {
     console.log(e);
     cover.classList.remove('active');
     const appEls = document.querySelectorAll('.app');
