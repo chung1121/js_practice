@@ -1,5 +1,6 @@
 import * as Todo from './todo.js';
 import * as Typing from './typing.js';
+import * as Slide from './slide.js';
 
 const nav = document.querySelector('#nav');
 const cover = document.querySelector('#cover');
