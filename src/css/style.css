@@ -645,3 +645,107 @@ section.active {
 }
 
 /* <= memory-card  */
+
+/* life =>  */
+#gl-menu {
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#gl-menu.hide {
+  display: none;
+}
+
+.gl-menu-btns {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 3px solid lightseagreen;
+}
+
+.gl-menu-btns > div {
+  width: 100%;
+  font-size: 1.5rem;
+  color: lightgreen;
+  text-align: center;
+  padding: 0.5rem;
+  margin: 0 2rem;
+  cursor: pointer;
+}
+
+.gl-menu-btns > div:hover {
+  color: black;
+  background-color: lightgreen;
+}
+
+.gl-canvas-container {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 5vh;
+}
+
+.gl-canvas-container.active {
+  display: flex;
+}
+
+canvas {
+  border: 2px solid yellow;
+  border-radius: 0;
+}
+
+.gl-size,
+.gl-speed,
+.gl-pattern {
+  width: 100%;
+  margin: 1rem;
+}
+
+.gl-size,
+.gl-speed,
+.gl-pattern.active {
+  display: flex;
+  justify-content: space-around;
+}
+
+.gl-pattern {
+  display: none;
+}
+
+.gl-generation {
+  width: 130px;
+  display: inline-block;
+  text-align: center;
+  border: solid 2px lightgreen;
+  margin-left: 1.5rem;
+}
+
+.gl-controller,
+.gl-back-to-menu {
+  width: 100%;
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 0.5rem 0;
+  cursor: pointer;
+}
+
+.gl-controller {
+  background-color: salmon;
+}
+
+.gl-back-to-menu {
+  border: 1px solid lightgreen;
+  transition: 0.5s;
+}
+
+.gl-back-to-menu:hover {
+  background-color: lightgreen;
+}
+
+/* <= life  */

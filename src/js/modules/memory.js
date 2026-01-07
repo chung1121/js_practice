@@ -4,6 +4,8 @@ const timer = document.querySelector('.mc-time');
 const matchedCounter = document.querySelector('.mc-matched');
 const failedCounter = document.querySelector('.mc-failed');
 const resetBtn = document.querySelector('.mc-reset-btn');
+const finishTimeEl = document.querySelector('.mc-congrats > h2 > span');
+const retry = document.querySelector('mc-retry-btn');
 
 let cards = [];
 let openedCards = [];
@@ -11,6 +13,8 @@ let matchedCount = 0;
 let time = 0;
 let failedCount = 0;
 let playingNow = false;
+let intervalid;
+let finishTime;
 const faces = [
   'bug',
   'upload',
@@ -85,7 +89,7 @@ function createDeck() {
 function flip() {
   if (!playingNow) {
     playingNow = true;
-    setInterval(() => {
+    intervalid = setInterval(() => {
       time++;
       timer.textContent = time;
     }, 1000);
@@ -115,6 +119,12 @@ function matchedOrNot(card1, card2) {
       card.removeEventListener('click', flip);
     });
     if (matchedCount === faces.length) {
+      clearInterval(intervalid);
+      finishTime = time;
+      finishTimeEl.textContent = finishTime;
+      setTimeout(() => {
+        congrats.classList.add('show');
+      }, 2500);
     }
     openedCards = [];
   } else {
@@ -142,7 +152,14 @@ function start() {
   timer.textContent = time;
   openedCards = [];
   deck.innerHTML = '';
+  playingNow = false;
+  clearInterval(intervalid);
   createDeck();
 }
+
+retry.addEventListener('click', () => {
+  congrats.classList.remove('show');
+  start();
+});
 
 start();
