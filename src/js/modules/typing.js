@@ -103,7 +103,7 @@ async function fetchAndRenderQuotes() {
 fetchAndRenderQuotes();
 
 textarea.addEventListener('input', () => {
-  let inputArray = textarea.Value.split('');
+  let inputArray = textarea.value.split('');
   let spans = quote.querySelectorAll('span');
   spans.forEach((span) => {
     span.className = '';

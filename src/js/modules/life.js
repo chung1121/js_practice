@@ -58,38 +58,39 @@ selfSelectBtn.addEventListener('click', () => {
   controller.textContent = 'Generate';
   controller.style.backgroundColor = RESUME_COLOR;
 
-  function createZeroGrid(){
+  function createZeroGrid() {
     let zeroGrid = generateEmptyGrid();
-    for(let i = 0; i < numOfCols; i++){
-        for(let j = 0; j < numOfRows; j++){
-            zeroGrid[i][j] = 0;
-        }
+    for (let i = 0; i < numOfCols; i++) {
+      for (let j = 0; j < numOfRows; j++) {
+        zeroGrid[i][j] = 0;
+      }
     }
-    return zeroGrid
+    return zeroGrid;
   }
 
   grid = createZeroGrid();
   drawAliveCells(grid);
+});
 
-  canvas.addEventListener('mousedown', e => {
-    if(pattern.classList.contains('active')){
-        console.log('mousedowned');
+canvas.addEventListener('mousedown', (e) => {
+  if (pattern.classList.contains('active')) {
+    console.log('mousedowned');
     const x = Math.floor(e.offsetX / size);
     const y = Math.floor(e.offsetY / size);
-    if(grid[x][y] === 0){
-        switch(patternSelect.Value){
-            case 'cell':
-                grid[x][y] = 1;
-                break;
-                case 'glider':
-                    Patterns.createGlider(grid, x, y);
-                    break;
-                case 'small-spaceship':
-                    Patterns.createSmallSpaceship(grid, x, y);
-                    break;
-        }
-    }else{
-        grid[x][y] = 0;
+    if (grid[x][y] === 0) {
+      switch (patternSelect.Value) {
+        case 'cell':
+          grid[x][y] = 1;
+          break;
+        case 'glider':
+          Patterns.createGlider(grid, x, y);
+          break;
+        case 'small-spaceship':
+          Patterns.createSmallSpaceship(grid, x, y);
+          break;
+      }
+    } else {
+      grid[x][y] = 0;
     }
     drawAliveCells(grid);
   }
@@ -110,7 +111,7 @@ controller.addEventListener('click', () => {
   if (runningState) {
     controller.textContent = 'Resume';
     controller.style.backgroundColor = RESUME_COLOR;
-     cancelAnimationFrame(AnimationId);
+    cancelAnimationFrame(AnimationId);
   } else {
     controller.textContent = 'Pause';
     controller.style.backgroundColor = PAUSE_COLOR;
@@ -197,16 +198,15 @@ function animate() {
   if (frameCount % speed === 0) {
     grid = createNextGrid();
     drawAliveCells(grid);
-    console.log('animation is running');
     numOfGeneration++;
     generation.textContent = numOfGeneration;
   }
   AnimationId = requestAnimationFrame(animate);
+}
 
-  if(!life.classList.contains('active')){
-    runningState = false;
-    cancelAnimationFrame(AnimationId);
-    controller.textContent = 'Resume';
-    controller.style.backgroundColor = RESUME_COLOR;
-  }
+if (!life.classList.contains('active')) {
+  runningState = false;
+  cancelAnimationFrame(AnimationId);
+  controller.textContent = 'Resume';
+  controller.style.backgroundColor = RESUME_COLOR;
 }

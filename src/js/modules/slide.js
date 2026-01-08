@@ -4,7 +4,7 @@ const backToMenu = document.querySelector('.sp-back-to-menu');
 const originalImage = document.querySelector('#sp-original-image');
 const showOriginalBtn = document.querySelector('#sp-show-original-btn');
 const screen = document.querySelector('#sp-screen');
-const counter = document.querySelector('.sp-counter')
+const counter = document.querySelector('.sp-counter');
 
 let level;
 let size;
@@ -41,7 +41,7 @@ menu.forEach((item) => {
 
 backToMenu.addEventListener('click', () => {
   menuCover.classList.remove('hide');
-  screen.classList,remove('zoom');
+  screen.classList, remove('zoom');
 });
 
 function setOriginalImage() {
@@ -120,33 +120,35 @@ function updateScreen() {
     count++;
     counter.textContent = count;
     setTimeout(() => {
-        if(JSON.stringify(tilesArray) === JSON.stringify(orderArray){
-            complete();
-        }
-    },500)
+      if (JSON.stringify(tilesArray) === JSON.stringify(orderArray)) {
+        complete();
+      }
+    }, 500);
   }
 
   tiles.forEach((tile, index) => {
-    tile.addEventListener('click', () =>{
-        const row = Math.floor(index / size);
-        const col = index % size;
-        if(level === 'easy'){
-            updateTiles(index);
-        }else{
-            if(row === hiddenTileRow && Math.abs(col - hiddenTileCol) === 1)
-            || col === hiddenTileCol && Math.abs(row - hiddenTileRow) === 1){
-                updateTiles(index);
+    tile.addEventListener('click', () => {
+      const row = Math.floor(index / size);
+      const col = index % size;
+      if (level === 'easy') {
+        updateTiles(index);
+      } else {
+        if (
+          (row === hiddenTileRow && Math.abs(col - hiddenTileCol) === 1) ||
+          (col === hiddenTileCol && Math.abs(row - hiddenTileRow) === 1)
+        ) {
+          updateTiles(index);
         }
-        }
+      }
       updateScreen();
     });
   });
 }
 
-function complete(){
-    tiles[hiddenTileIndex].classList.remove('hidden');
-    screen.classList.add('zoom');
-    tiles.forEach(tile => {
-        tile.classList.add('complete');
-    })
+function complete() {
+  tiles[hiddenTileIndex].classList.remove('hidden');
+  screen.classList.add('zoom');
+  tiles.forEach((tile) => {
+    tile.classList.add('complete');
+  });
 }

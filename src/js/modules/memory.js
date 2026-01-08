@@ -5,7 +5,7 @@ const matchedCounter = document.querySelector('.mc-matched');
 const failedCounter = document.querySelector('.mc-failed');
 const resetBtn = document.querySelector('.mc-reset-btn');
 const finishTimeEl = document.querySelector('.mc-congrats > h2 > span');
-const retry = document.querySelector('mc-retry-btn');
+const retry = document.querySelector('.mc-retry-btn');
 
 let cards = [];
 let openedCards = [];
@@ -80,7 +80,7 @@ function createDeck() {
   shuffledFaces.forEach((face) => {
     const cardDiv = createCard();
     const frontImage = cardDiv.querySelector('.mc-front > img');
-    frontImage.setAttribute('src', fasesPath[face]);
+    frontImage.setAttribute('src', facesPath[face]);
     deck.appendChild(cardDiv);
     cardDiv.addEventListener('click', flip);
   });
